@@ -9,7 +9,7 @@ build:
 # AWS assume role settings
 # Conditionally attempts to assume IAM role using STS
 # Syntax: $(call assume_role,<role-arn>)
-get_assume_session = aws sts assume-role --role-arn=$(1) --role-session-name=packer
+get_assume_session = aws sts assume-role --role-arn=$(1) --role-session-name=akash47
 get_assume_credential = jq --null-input '$(1)' | jq .Credentials.$(2) -r
 define assume_role
 	$(eval AWS_SESSION = $(shell $(call get_assume_session,$(1))))
